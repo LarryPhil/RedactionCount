@@ -1,0 +1,27 @@
+# Redaction Count program
+## Introduction
+I designed this program to count the percentage of information redacted from documents particularly those given by DOCCS. This program was designed to particularly on cracking the Inmate death FOIL document. This program uses relies on python modules Jython and pdfminer (with JES, being the editor with to the Jython libraries already integrated).  Like with any measurement, the output depends on the figure metric used. For this program I tried to use—what I saw as—the fairest metric for measuring redaction.
+
+## Methods
+I have crafted two methods to calculating this redaction. Both rely on counting up the the total  of black pixels.
+First method, brute force assessment of total redaction percentage. I found that a page of full page of text entire unredacted was around 3% black pixels and a page entirely full of reaction was around 55%. Thus, we can use these number along with the percentage black on each page to estimate the total percent that is redacted
+
+For the second method, I count the total number of redacted blocks (in units of one line) and calculates the percent redacted by dividing the number of redacted blocks by the total number of blocks. I find the latter by counting the total number of lines where text  _could_ be redacted, so I exclude lines like the title page, the "greetings", headers, signatures and so on. To count the total amount of redaction of each page 
+
+## Procedure for use:
+Step 1: crop all pages to exclude headers, signatures, and all other text that you deem to be non redactable 
+Step 2: Run Character count function on Cropped PDF
+Step 3: Convert file to jpeg and plug the character count number along with the jpeg into program
+```mermaid
+graph LR
+A[Document] -- Step 1  --> B(cropped document) 
+
+B -- Step 2 --> C(cropped pdf) -- Step 3 --> D(redaction percentage)
+
+```
+
+## Limitations
+With every
+
+
+
